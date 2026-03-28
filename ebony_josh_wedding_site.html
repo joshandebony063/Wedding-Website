@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ebony & Josh | Wedding</title>
+  <meta name="description" content="Wedding website for Ebony and Josh." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --burgundy: #821d30;
+      --white: #ffffff;
+      --ivory: #fbf7f8;
+      --rose: #f3e9ec;
+      --text: #33141b;
+      --muted: #6e4b54;
+      --shadow: 0 18px 45px rgba(130, 29, 48, 0.14);
+      --radius: 24px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(130, 29, 48, 0.08), transparent 28%),
+        linear-gradient(180deg, #fff 0%, var(--ivory) 100%);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .eyebrow,
+    .section-title,
+    .hero-title,
+    .nav-links a,
+    .button,
+    .countdown-value,
+    .monogram,
+    .details-label {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.04em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.82);
+      border-bottom: 1px solid rgba(130, 29, 48, 0.08);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .monogram {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--burgundy);
+      color: var(--white);
+      font-size: 1rem;
+      box-shadow: var(--shadow);
+      flex-shrink: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 0.98rem;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      color: var(--burgundy);
+      opacity: 0.9;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 5.5rem 0 4rem;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(8px);
+      z-index: -1;
+    }
+
+    .hero::before {
+      width: 280px;
+      height: 280px;
+      background: rgba(130, 29, 48, 0.08);
+      top: -40px;
+      right: -60px;
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      background: rgba(130, 29, 48, 0.08);
+      bottom: 20px;
+      left: -60px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(130, 29, 48, 0.09);
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+      padding: clamp(2rem, 5vw, 4rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(130, 29, 48, 0.12);
+      border-radius: 28px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--burgundy);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(2.6rem, 8vw, 5.6rem);
+      line-height: 1.06;
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+
+    .ampersand {
+      font-size: 0.78em;
+      padding: 0 0.2em;
+      opacity: 0.8;
+    }
+
+    .hero-subtitle {
+      margin: 1rem auto 0;
+      max-width: 720px;
+      font-size: clamp(1.25rem, 3vw, 1.7rem);
+      color: var(--muted);
+    }
+
+    .hero-meta {
+      margin-top: 1.8rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .pill {
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      background: var(--rose);
+      color: var(--burgundy);
+      border: 1px solid rgba(130, 29, 48, 0.1);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--burgundy);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(130, 29, 48, 0.15);
+    }
+
+    .button-primary {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--burgundy);
+    }
+
+    .section {
+      padding: 2.5rem 0 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      color: var(--burgundy);
+      font-weight: 600;
+    }
+
+    .section-copy {
+      max-width: 720px;
+      margin: 0.7rem auto 0;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .countdown-grid,
+    .details-grid,
+    .info-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .countdown-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(130, 29, 48, 0.1);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+    }
+
+    .countdown-card {
+      text-align: center;
+      padding: 1.6rem 1rem;
+    }
+
+    .countdown-value {
+      font-size: clamp(2rem, 6vw, 3.1rem);
+      color: var(--burgundy);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .countdown-label {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .details-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .details-card {
+      text-align: center;
+    }
+
+    .details-label {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      margin-bottom: 0.5rem;
+    }
+
+    .details-card h3 {
+      margin: 0;
+      font-size: 1.7rem;
+      font-weight: 600;
+    }
+
+    .details-card p {
+      margin: 0.45rem 0 0;
+      font-size: 1.15rem;
+      color: var(--muted);
+    }
+
+    .info-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: stretch;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.3rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem;
+      border-radius: 18px;
+      background: var(--ivory);
+      border: 1px solid rgba(130, 29, 48, 0.08);
+    }
+
+    .timeline-time {
+      color: var(--burgundy);
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+    }
+
+    .timeline-item h4 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .timeline-item p,
+    .info-list li,
+    .rsvp-note,
+    .footer {
+      color: var(--muted);
+    }
+
+    .timeline-item p {
+      margin: 0.25rem 0 0;
+      font-size: 1.05rem;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    .info-list li {
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      background: var(--ivory);
+      border: 1px solid rgba(130, 29, 48, 0.08);
+    }
+
+    .rsvp-card {
+      text-align: center;
+      padding: clamp(1.8rem, 4vw, 2.8rem);
+    }
+
+    .rsvp-note {
+      max-width: 700px;
+      margin: 0.9rem auto 0;
+      font-size: 1.15rem;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2.5rem 1rem 3rem;
+      font-size: 1rem;
+    }
+
+    .footer strong {
+      color: var(--burgundy);
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .countdown-grid,
+      .details-grid,
+      .info-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .countdown-grid,
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Go to top of page">
+        <div class="monogram">EJ</div>
+        <div class="brand-text">
+          <strong>Ebony & Josh</strong>
+          <span>Saturday 6th March 2027</span>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#countdown">Countdown</a>
+        <a href="#details">Details</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#travel">Travel</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="eyebrow">Together with our loved ones</div>
+          <h1 class="hero-title">Ebony <span class="ampersand">&</span> Josh</h1>
+          <p class="hero-subtitle">Invite you to celebrate their wedding on Saturday 6th March 2027 at Holne Park House, Ashburton, Devon.</p>
+          <div class="hero-meta">
+            <div class="pill">Saturday 6th March 2027</div>
+            <div class="pill">Holne Park House</div>
+            <div class="pill">Ashburton, Devon</div>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#rsvp">RSVP</a>
+            <a class="button button-secondary" href="https://maps.google.com/?q=Holne+Park+House+Ashburton+Devon" target="_blank" rel="noreferrer">View Map</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="countdown">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Counting Down to “I do”</h2>
+          <p class="section-copy">A little timer for the big day.</p>
+        </div>
+        <div class="countdown-grid">
+          <div class="card countdown-card">
+            <div class="countdown-value" id="days">0</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="card countdown-card">
+            <div class="countdown-value" id="hours">0</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="card countdown-card">
+            <div class="countdown-value" id="minutes">0</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="card countdown-card">
+            <div class="countdown-value" id="seconds">0</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="details">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">The Details</h2>
+          <p class="section-copy">Everything you need to know for the day.</p>
+        </div>
+        <div class="details-grid">
+          <article class="card details-card">
+            <div class="details-label">When</div>
+            <h3>Saturday</h3>
+            <p>6th March 2027</p>
+          </article>
+          <article class="card details-card">
+            <div class="details-label">Where</div>
+            <h3>Holne Park House</h3>
+            <p>Ashburton, Devon</p>
+          </article>
+          <article class="card details-card">
+            <div class="details-label">Theme</div>
+            <h3>Burgundy & White</h3>
+            <p>Elegant, warm, and timeless</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <div class="container info-grid">
+        <article class="card">
+          <div class="section-header" style="margin-bottom:0; text-align:left;">
+            <h2 class="section-title">Wedding Day Schedule</h2>
+            <p class="section-copy" style="margin-left:0; margin-right:0;">You can update these times later if your plans change.</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">1:00 PM</div>
+              <div>
+                <h4>Guests Arrive</h4>
+                <p>Settle in, say hello, and enjoy a welcome drink.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">2:00 PM</div>
+              <div>
+                <h4>Ceremony</h4>
+                <p>Join us as we say our vows.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">3:00 PM</div>
+              <div>
+                <h4>Reception</h4>
+                <p>Drinks, photographs, and celebrations with family and friends.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">6:00 PM</div>
+              <div>
+                <h4>Dinner & Toasts</h4>
+                <p>Good food, speeches, and happy tears.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">8:00 PM</div>
+              <div>
+                <h4>Evening Celebration</h4>
+                <p>Music, dancing, and a proper party.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="card" id="travel">
+          <div class="section-header" style="margin-bottom:0; text-align:left;">
+            <h2 class="section-title">Travel & Stay</h2>
+            <p class="section-copy" style="margin-left:0; margin-right:0;">Helpful notes for guests travelling in.</p>
+          </div>
+          <ul class="info-list">
+            <li><strong>Venue:</strong> Holne Park House, Ashburton, Devon</li>
+            <li><strong>Arrival:</strong> Please aim to arrive at least 30 minutes before the ceremony.</li>
+            <li><strong>Parking:</strong> Add your parking details here if the venue confirms them.</li>
+            <li><strong>Accommodation:</strong> Add nearby hotel, inn, or Airbnb suggestions here.</li>
+            <li><strong>Directions:</strong> Use the map button above for easy navigation.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="rsvp">
+      <div class="container">
+        <div class="card rsvp-card">
+          <div class="section-header">
+            <h2 class="section-title">RSVP</h2>
+            <p class="section-copy">We would love to celebrate with you.</p>
+          </div>
+          <p class="rsvp-note">This version uses a simple email RSVP so the site stays fully free. Replace the email address below with your own, or swap it for a Google Form if you want guests to respond through a form.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:your-email@example.com?subject=Ebony%20and%20Josh%20Wedding%20RSVP">RSVP by Email</a>
+            <a class="button button-secondary" href="https://forms.google.com" target="_blank" rel="noreferrer">Use Google Form Instead</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Made with love for <strong>Ebony & Josh</strong>.
+    </div>
+  </footer>
+
+  <script>
+    const targetDate = new Date('2027-03-06T13:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
